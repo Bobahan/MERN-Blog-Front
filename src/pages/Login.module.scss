@@ -1,0 +1,30 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 500px;
+  background-color: #ffff;
+  box-shadow: 10px 5px 20px #1976d2;
+  transition: box-shadow 0.25s ease;
+  margin: 50px auto;
+
+  div {
+    width: 300px;
+  }
+
+  button {
+    width: 300px;
+    padding: 10px;
+    border-radius: 30px;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+  }
+}
+
+.field {
+  margin-bottom: 20px !important;
+}

@@ -1,0 +1,156 @@
+.root {
+  border-radius: 100px;
+  display: flex;
+  background-color: #e5e5e5;
+  margin: 50px 0;
+  position: relative;
+
+  &:hover {
+    box-shadow: 1px 5px 40px #4160ea;
+    transition: box-shadow 0.25s ease;
+    cursor: pointer;
+
+    .editButtons {
+      opacity: 1;
+    }
+  }
+
+  &Full {
+    display: block;
+
+    &:hover {
+      border: 1px solid #dedede;
+      box-shadow: none;
+      cursor: default;
+    }
+  }
+
+  .post {
+    &__image {
+      height: 400px;
+      object-fit: cover;
+
+      &Full {
+        width: 100%;
+        min-height: 500px;
+        height: 100%;
+      }
+    }
+
+    &__body {
+      max-height: 200px; // ?
+      overflow: hidden; // ?
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-left: 10px;
+      max-width: 450px;
+      margin: 0 auto;
+
+      &Full {
+        margin-left: 0;
+        padding: 50px;
+        max-width: 100%;
+      }
+    }
+
+    &__content div {
+      margin-bottom: 10px;
+    }
+
+    &__title {
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 1em;
+
+      &Full {
+        font-size: 60px;
+        text-align: center;
+        margin-bottom: 20px;
+        text-decoration: none;
+        color: black;
+      }
+    }
+
+    &__text {
+      font-weight: 400;
+    }
+
+    &__user {
+      display: flex;
+      align-items: center;
+
+      &Full {
+        flex-direction: row;
+        align-items: center;
+      }
+
+      > div {
+        margin: 0 5px;
+        font-size: 20px;
+      }
+    }
+
+    &__userIMG {
+      width: 30px;
+    }
+
+    &__details {
+      padding: 0;
+    }
+
+    &__details > li {
+      display: inline-flex;
+      list-style: none;
+      align-items: center;
+      margin-right: 10px;
+    }
+  }
+
+  .editButtons {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 10px;
+    opacity: 0;
+    transition: all 0.15s ease-in-out;
+  }
+}
+
+.skeleton {
+  background-color: #fff;
+  border: 1px solid #dedede;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  height: 300px;
+
+  &Content {
+    padding: 20px;
+  }
+
+  &Info {
+    margin-left: 50px;
+  }
+}
+
+.skeletonUser {
+  display: flex;
+
+  &Details {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.skeletonTags {
+  display: flex;
+
+  span {
+    margin-right: 15px;
+  }
+}

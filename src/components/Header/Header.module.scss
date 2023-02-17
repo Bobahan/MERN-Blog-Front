@@ -1,0 +1,27 @@
+.root {
+  // border-bottom: 1px solid #1b2b4c;
+  align-items: center;
+  padding: 10px;
+  margin: 0 auto;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    border: 0;
+    border-radius: 10px;
+    background-color: black;
+    font-weight: 700;
+    padding: 10px;
+
+    &:hover {
+      background-color: #1976d2;
+    }
+  }
+}

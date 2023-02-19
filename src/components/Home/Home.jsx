@@ -6,6 +6,7 @@ import Post from '../Post/Post';
 
 const Home = () => {
   const dispatch = useDispatch();
+  const isAuth = useSelector((state) => state.auth.user);
   const { items, isLoading } = useSelector((state) => state.posts.posts);
 
   const isLoadingPosts = isLoading.status === 'loading';
@@ -29,6 +30,7 @@ const Home = () => {
             user={post.user.fullName}
             data={post.createdAt}
             viewsCount={post.viewsCount}
+            isOwner={post.user._id === isAuth?._id}
           />
         ),
       )}

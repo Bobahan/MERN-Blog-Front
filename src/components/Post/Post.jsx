@@ -7,13 +7,14 @@ import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Clear';
 import EyeIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import CommentIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
+import { useSelector } from 'react-redux';
+import React from 'react';
 
-const Post = ({ _id, title, body, img, isFullPost, user, data, viewsCount }) => {
-  const isEditable = true;
+const Post = ({ _id, title, body, img, isFullPost, user, data, viewsCount, isOwner }) => {
   return (
     <>
       <div className={clsx(styles.root, { [styles.rootFull]: isFullPost })}>
-        {isEditable && (
+        {isOwner && (
           <div className={styles.editButtons}>
             <Link to={`/post/${_id}`}>
               <IconButton>
@@ -37,10 +38,7 @@ const Post = ({ _id, title, body, img, isFullPost, user, data, viewsCount }) => 
           <div className={clsx(styles.post__title, { [styles.post__titleFull]: isFullPost })}>
             {isFullPost ? title : <Link to={`/post/${_id}`}>{title}</Link>}
           </div>
-          <div className={styles.post__body}>
-            {body}{' '}
-            shajhdfsshajhdfsfkhksahjkfhjksahjkshajhdfsfkhksahjkfhjksahjkshajhdfsfkhksahjkfhjksahjkshajhdfsfkhksahjkfhjksahjkshajhdfsfkhksahjkfhjksahjkshajhdfsfkhksahjkfhjksahjkshajhdfsfkhksahjkfhjksahjkfkhksahjkfhjksahjk
-          </div>
+          <div className={styles.post__body}>{body}</div>
           <div className={clsx(styles.post__user, { [styles.post__userFull]: isFullPost })}>
             <img src={userIMG} className={styles.post__userIMG} />
             <div>{user}</div>

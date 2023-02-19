@@ -24,8 +24,8 @@ const Register = () => {
     mode: 'all',
   });
 
-  const onSubmit = async (values) => {
-    const data = dispatch(fetchRegister(values));
+  const onSubmit = (values) => {
+    dispatch(fetchRegister(values)); // ?? async await we need to setItem to localStorage
   };
 
   if (isAuth) {

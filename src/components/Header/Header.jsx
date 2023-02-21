@@ -23,7 +23,7 @@ const Header = () => {
           </Link>
           {isAuth ? (
             <div>
-              <Link to={'/post/create'}>
+              <Link to={'/add-post'}>
                 <Button variant="contained">Write A post</Button>
               </Link>
               <Link to={'/'}>

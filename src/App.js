@@ -6,6 +6,7 @@ import './App.scss';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import Sidebar from './components/Sidebar/Sidebar';
+import AddPost from './pages/EditPost/AddPost';
 import FullPost from './pages/FullPost/FullPost';
 import Login from './pages/Login';
 import Register from './pages/Register/Register';
@@ -25,10 +26,9 @@ const App = () => {
         <Sidebar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/post" element={<FullPost />}>
-            <Route path=":id" element={<FullPost />} />
-          </Route>
-          <Route path="/add-post" element />
+          <Route path="/post/:id" element={<FullPost />} />
+          <Route path="/post/:id/edit" element={<AddPost />} />
+          <Route path="/add-post" element={<AddPost />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Routes>

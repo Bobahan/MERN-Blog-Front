@@ -27,10 +27,6 @@ root.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
-// тохтуохха наада если все следующее число хуже чем то что мы имееет на данный момент
+// тохтуохха наада если все следующее число хуже чем то что мы имееет на данный момент через Math.max
 
-const maxSubArray = (nums) => {};
-
-// Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
-// Output: 6
-// Explanation: The subarray [4,-1,2,1] has the largest sum 6.
+// идея проста мы можем хранить результат подзадач так чтобы не пересчитывать их заново

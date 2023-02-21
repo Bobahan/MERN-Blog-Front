@@ -18,6 +18,19 @@ export const postsAPI = {
   getOnePost: async (id) => {
     return await instance.get(`/post/${id}`);
   },
+  addPost: async (post) => {
+    return await instance.post(`/post`, post);
+  },
+  deletePost: async (id) => {
+    return await instance.delete(`/post/${id}`).then((res) => {
+      return res.data;
+    });
+  },
+  editPost: async (id, post) => {
+    return await instance.patch(`/post/${id}`, post).then((res) => {
+      return res.data;
+    });
+  },
 };
 
 export const authAPI = {
@@ -35,5 +48,13 @@ export const authAPI = {
     return await instance.post('/auth/register', data).then((res) => {
       return res.data;
     });
+  },
+};
+
+export const uploadAPI = {
+  uploadIMG: async (img) => {
+    let formData = new FormData();
+    formData.append('image', img);
+    return await instance.post('/upload', formData);
   },
 };

@@ -1,7 +1,8 @@
-import { Button } from '@mui/material';
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { Button } from '@mui/material';
+
 import { logout } from '../../store/slices/auth/auth';
 import styles from './Header.module.scss';
 
@@ -22,7 +23,7 @@ const Header = () => {
             Vladimir's blog
           </Link>
           {isAuth ? (
-            <div>
+            <div className={styles.btns}>
               <Link to={'/add-post'}>
                 <Button variant="contained">Write A post</Button>
               </Link>

@@ -1,5 +1,4 @@
 .root {
-  // border-bottom: 1px solid #1b2b4c;
   align-items: center;
   padding: 10px;
   margin: 0 auto;
@@ -8,6 +7,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media (max-width: 515px) {
+      flex-direction: column;
+      a {
+        margin-bottom: 10px;
+      }
+    }
   }
 
   .logo {
@@ -22,6 +28,16 @@
 
     &:hover {
       background-color: #1976d2;
+    }
+  }
+}
+
+.btns {
+  @media (max-width: 361px) {
+    display: flex;
+
+    > a * {
+      padding: 5px;
     }
   }
 }

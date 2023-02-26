@@ -1,64 +1,106 @@
-import styles from './Post.module.scss';
-import clsx from 'clsx';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import userIMG from '../../assets/user.png';
+import { useDispatch } from 'react-redux';
+import clsx from 'clsx';
+
 import { IconButton } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Clear';
 import EyeIcon from '@mui/icons-material/RemoveRedEyeOutlined';
-import CommentIcon from '@mui/icons-material/ChatBubbleOutlineOutlined';
-import { useSelector } from 'react-redux';
-import React from 'react';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
-const Post = ({ _id, title, body, img, isFullPost, user, data, viewsCount, isOwner }) => {
+import styles from './Post.module.scss';
+import userIMG from '../../assets/userimg.png';
+import { cut } from '../../utils/cutter';
+import { fetchDeletePost } from '../../store/slices/posts/posts';
+import noIMG from '../../assets/noimage.png';
+
+const Post = ({
+  postId,
+  title,
+  body,
+  img,
+  user,
+  createdAt,
+  viewsCount,
+  isFullPost,
+  isOwner,
+  avatarURL,
+}) => {
+  const dispatch = useDispatch();
+
+  const onHandleDeletePost = () => {
+    dispatch(fetchDeletePost(postId));
+  };
+
   return (
-    <>
+    <div className="container">
       <div className={clsx(styles.root, { [styles.rootFull]: isFullPost })}>
         {isOwner && (
           <div className={styles.editButtons}>
-            <Link to={`/post/${_id}`}>
+            <Link to={`/post/${postId}/edit`}>
               <IconButton>
                 <EditIcon />
               </IconButton>
             </Link>
-            <IconButton>
+            <IconButton onClick={onHandleDeletePost}>
               <DeleteIcon />
             </IconButton>
           </div>
         )}
-        <img
-          className={clsx(styles.post__image, { [styles.post__imageFull]: isFullPost })}
-          src={
-            img ||
-            'https://thecode.media/wp-content/uploads/2023/02/photo_2023-02-01_14-32-06-2-1536x1027.png'
-          }
-          alt={title}
-        />
+        {img ? (
+          <img
+            className={clsx(styles.post__image, { [styles.post__imageFull]: isFullPost })}
+            src={img}
+          />
+        ) : (
+          <img
+            src={noIMG}
+            className={clsx(styles.post__image, { [styles.post__imageFull]: isFullPost })}
+          />
+        )}
         <div className={clsx(styles.post__content, { [styles.post__contentFull]: isFullPost })}>
           <div className={clsx(styles.post__title, { [styles.post__titleFull]: isFullPost })}>
-            {isFullPost ? title : <Link to={`/post/${_id}`}>{title}</Link>}
+            {isFullPost ? title : <Link to={`/post/${postId}`}>{title}</Link>}
           </div>
-          <div className={styles.post__body}>{body}</div>
-          <div className={clsx(styles.post__user, { [styles.post__userFull]: isFullPost })}>
-            <img src={userIMG} className={styles.post__userIMG} />
-            <div>{user}</div>
-            <div>{data}</div>
+          <div className={clsx(styles.post__body, { [styles.post__bodyFull]: isFullPost })}>
+            {body}
           </div>
-          <div>
-            <ul className={styles.post__details}>
-              <li>
-                <EyeIcon />
-                <span>{viewsCount}</span>
-              </li>
-              <li>
-                <CommentIcon />
-                <span>12</span>
-              </li>
-            </ul>
-          </div>
+          {!isFullPost && (
+            <>
+              <div className={clsx(styles.post__user, { [styles.post__userFull]: isFullPost })}>
+                {avatarURL ? (
+                  <img
+                    style={{
+                      borderRadius: '50%',
+                      width: '40px',
+                      height: '40px',
+                      objectFit: 'cover',
+                    }}
+                    src={`${avatarURL}`}
+                  />
+                ) : (
+                  <img src={userIMG} className={styles.post__userIMG} />
+                )}
+                <div>{user}</div>
+              </div>
+              <ul className={styles.post__details}>
+                <li>
+                  <AccessTimeIcon />
+                  {cut(createdAt)}
+                </li>
+              </ul>
+              <ul className={styles.post__details}>
+                <li>
+                  <EyeIcon />
+                  <span>{viewsCount}</span>
+                </li>
+              </ul>
+            </>
+          )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

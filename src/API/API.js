@@ -35,9 +35,16 @@ export const postsAPI = {
 
 export const authAPI = {
   login: async (data) => {
-    return await instance.post('/auth/login', data).then((res) => {
-      return res.data;
-    });
+    try {
+      return await instance.post('/auth/login', data).then((res) => {
+        return res.data;
+      });
+    } catch (error) {
+      const { response } = error;
+      if (response.status === 400) {
+        return response.data.message;
+      }
+    }
   },
   getMe: async () => {
     return await instance.get('/auth/me').then((res) => {
@@ -45,9 +52,18 @@ export const authAPI = {
     });
   },
   register: async (data) => {
-    return await instance.post('/auth/register', data).then((res) => {
-      return res.data;
-    });
+    try {
+      return await instance.post('/auth/register', data).then((res) => {
+        return res.data;
+      });
+    } catch (error) {
+      const { response } = error;
+      if (response.status === 500) {
+        return response.data.message;
+      } else {
+        return response.data.message;
+      }
+    }
   },
 };
 

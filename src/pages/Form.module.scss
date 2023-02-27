@@ -1,0 +1,50 @@
+.form {
+  h1 {
+    margin-bottom: 0;
+    color: #1976d2;
+  }
+
+  img {
+    width: 120px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 500px;
+    background-color: #ffff;
+    box-shadow: 10px 5px 20px #1976d2;
+    transition: box-shadow 0.25s ease;
+    margin: 20px auto;
+
+    div {
+      width: 300px;
+      @media (max-width: 415px) {
+        width: fit-content;
+      }
+    }
+
+    button {
+      width: 300px;
+      margin-bottom: 20px;
+      padding: 10px;
+      border-radius: 30px;
+      @media (max-width: 415px) {
+        width: fit-content;
+      }
+    }
+
+    div {
+      text-align: center;
+      h1 {
+        margin: 20px 0 10px 0;
+      }
+    }
+  }
+}
+
+.field {
+  margin-bottom: 20px !important;
+}

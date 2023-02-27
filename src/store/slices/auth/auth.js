@@ -28,8 +28,13 @@ export const authSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder.addCase(fetchAuth.fulfilled, (state, action) => {
-      state.user = action.payload;
-      state.isLoading = 'loaded';
+      if (typeof action.payload === 'string') {
+        state.user = null;
+        state.isLoading = 'loaded';
+      } else {
+        state.user = action.payload;
+        state.isLoading = 'loaded';
+      }
     });
     builder.addCase(fetchAuthMe.fulfilled, (state, action) => {
       state.user = action.payload;
@@ -37,10 +42,13 @@ export const authSlice = createSlice({
     });
     builder.addCase(fetchRegister.fulfilled, (state, action) => {
       state.user = action.payload;
-      if ('token' in action.payload) {
-        window.localStorage.setItem('token', action.payload.token);
+      if (typeof action.payload === 'string') {
+        state.user = null;
+        state.isLoading = 'loaded';
+      } else {
+        state.user = action.payload;
+        state.isLoading = 'loaded';
       }
-      state.isLoading = 'loaded';
     });
   },
 });

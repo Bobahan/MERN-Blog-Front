@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { postsAPI } from '../../API/API';
 import Post from '../../components/Post/Post';
+import { Preloader } from '../../components/Preloader';
 
 const FullPost = () => {
   const { id } = useParams();
@@ -19,7 +19,7 @@ const FullPost = () => {
   }, []);
 
   if (isLoading) {
-    return 'loading...';
+    return <Preloader />;
   }
 
   return (
@@ -27,7 +27,9 @@ const FullPost = () => {
       _id={post._id}
       title={post.title}
       body={post.body}
-      img={post.img}
+      img={post.imageUrl ? `http://localhost:4444${post.imageUrl}` : ''}
+      createdAt={post.createdAt}
+      viewsCount={post.viewsCount}
       isFullPost={isFullPost}
     />
   );

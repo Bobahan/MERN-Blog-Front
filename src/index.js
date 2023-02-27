@@ -26,7 +26,3 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-
-// тохтуохха наада если все следующее число хуже чем то что мы имееет на данный момент через Math.max
-
-// идея проста мы можем хранить результат подзадач так чтобы не пересчитывать их заново

@@ -1,5 +1,6 @@
 # Blog
 Blog application with MVP features implemented: user authentication, article viewing, posting, changing own posts.
+This is the frontend repo built with React. If you are looking for the backend repo, click here(https://github.com/Bobahan/MERN-Blog-Back)
 
 ## Potential improvements:
 - having a personal account,
@@ -24,4 +25,4 @@ Blog application with MVP features implemented: user authentication, article vie
 ## Setup instructions
 1. First install the dependencies:
 2. cd into the directory and run npm install.
-4. [https://github.com/Bobahan/MERN-Blog-Back]
+4. click here(https://github.com/Bobahan/MERN-Blog-Back)

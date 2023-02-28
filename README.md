@@ -7,6 +7,7 @@ This is the frontend repo built with React. If you are looking for the backend r
 - ability to add tags and comments,
 - topic selection,
 - search by title and topic,
+- sorting by popularity, rated and novelty
 - article reading time,
 - web socket
 - pagination

@@ -25,4 +25,5 @@ This is the frontend repo built with React. If you are looking for the backend r
 ## Setup instructions
 1. First install the dependencies:
 2. cd into the directory and run npm install.
-4. [click here](https://github.com/Bobahan/MERN-Blog-Back)
+3. npm run start
+4. Next [click here](https://github.com/Bobahan/MERN-Blog-Back) to do the same with the backend

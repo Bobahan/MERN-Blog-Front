@@ -20,3 +20,8 @@ Blog application with MVP features implemented: user authentication, article vie
 - Node.js - Runtime environment to help build fast server applications
 - React - JavaScript library for building user interfaces
 - Redux - JavaScript library to help better manage application state
+
+## Setup instructions
+1. First install the dependencies:
+2. cd into the directory and run npm install.
+3. Run npm install.

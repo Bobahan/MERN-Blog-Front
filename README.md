@@ -24,4 +24,4 @@ Blog application with MVP features implemented: user authentication, article vie
 ## Setup instructions
 1. First install the dependencies:
 2. cd into the directory and run npm install.
-3. Run npm install.
+4. [https://github.com/Bobahan/MERN-Blog-Back]
